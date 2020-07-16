@@ -1,0 +1,18 @@
+body {
+	@include max-w(xl) {
+		font-size: 20px;
+	}
+
+	@include max-w(lg) {
+		font-size: 18px;
+	}
+
+	@include max-w(md) {
+		font-size: 16px;
+	}
+}
+
+::selection {
+	color: $white;
+	background: $primary;
+}

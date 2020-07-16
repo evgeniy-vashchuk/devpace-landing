@@ -1,0 +1,23 @@
+.arrow-down {
+	display: block;
+	padding: 20px;
+	border-radius: 50%;
+	line-height: 1;
+
+	@include min-w(xxl) {
+		padding: 40px;
+	}
+
+	&__icon {
+		display: inline-block;
+		color: $white;
+		font-size: 25px;
+		transition: transform 0.5s;
+	}
+
+	&:hover {
+		.arrow-down__icon {
+			transform: translate(0, 20px);
+		}
+	}
+}

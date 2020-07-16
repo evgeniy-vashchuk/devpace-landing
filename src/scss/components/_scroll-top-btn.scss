@@ -1,0 +1,60 @@
+.scroll-top-btn {
+	@include sizeElement(40px);
+	@include flexCenter;
+
+	position: fixed;
+	bottom: 100px;
+	right: 25px;
+	border-radius: 50%;
+	background-color: $white;
+	color: $gray-900;
+	box-shadow: 0 12px 48px rgba($black, 0.2), 0 8px 14px rgba($black, 0.12);
+	z-index: $zindex-scroll-top-btn;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s, visibility 0.3s, color 0.3s, background-color 0.3s;
+
+	&:hover {
+		background-color: $primary;
+		color: $white;
+	}
+
+	@include max-w(md) {
+		display: none;
+	}
+
+	@include min-w(lg) {
+		@include sizeElement(55px);
+
+		right: 53px;
+		bottom: 150px;
+	}
+
+	@include min-w(xl) {
+		right: 73px;
+		bottom: 195px;
+	}
+
+	@include min-w(xxl) {
+		@include sizeElement(64px);
+
+		right: 78px;
+	}
+
+	&.-show {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&__icon {
+		font-size: 18px;
+
+		@include min-w(lg) {
+			font-size: 22px;
+		}
+
+		@include min-w(xxl) {
+			font-size: 26px;
+		}
+	}
+}

@@ -1,0 +1,92 @@
+.hamburger {
+	position: relative;
+	cursor: pointer;
+
+	&.-active {
+		.hamburger__line {
+			&:nth-child(2) {
+				opacity: 0;
+			}
+
+			&:first-of-type {
+				transform: translateY(8px) rotate(45deg);
+
+				@include min-w(lg) {
+					transform: translateY(12px) rotate(45deg);
+				}
+
+				@include min-w(xxl) {
+					transform: translateY(20px) rotate(45deg);
+				}
+			}
+
+			&:nth-last-of-type(1) {
+				transform: translateY(-8px) rotate(-45deg);
+
+				@include min-w(lg) {
+					transform: translateY(-12px) rotate(-45deg);
+				}
+
+				@include min-w(xxl) {
+					transform: translateY(-20px) rotate(-45deg);
+				}
+			}
+		}
+	}
+
+	&.-white {
+		.hamburger__line {
+			background-color: rgba($white, 0.8);
+		}
+	}
+
+	&.-black {
+		.hamburger__line {
+			background-color: rgba($black, 0.8);
+		}
+	}
+
+	&__menu-round-overlay {
+		@include absoluteCenter;
+
+		z-index: 5;
+		background-color: $primary;
+		border-radius: 50%;
+		transition: transform 1s;
+		transform: translate(-50%, -50%) scale(0);
+		pointer-events: none;
+
+		&.-open {
+			transform: translate(-50%, -50%) scale(1);
+		}
+	}
+
+	&__line {
+		position: relative;
+		z-index: 10;
+		width: 35px;
+		height: 2px;
+		background-color: rgba($white, 0.8);
+		display: block;
+		margin: 6px auto;
+		transition: transform 0.3s ease-in-out, background-color 0.3s;
+
+		@include min-w(lg) {
+			width: 45px;
+			margin: 10px auto;
+		}
+
+		@include min-w(xxl) {
+			width: 60px;
+			margin: 18px auto;
+		}
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+
+		&:nth-last-of-type(1) {
+			margin-bottom: 0;
+		}
+	}
+}

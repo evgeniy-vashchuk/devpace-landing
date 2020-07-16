@@ -1,0 +1,58 @@
+body, html, a, input, .gm-style > div, button {
+	@include min-w(md) {
+		cursor: none !important;
+	}
+}
+
+.cursor {
+	@include sizeElement(60px);
+
+	position: absolute;
+	top: -60px;
+	left: 50%;
+	margin: -30px 0 0 -30px;
+	pointer-events: none;
+	z-index: $zindex-custom-cursor;
+	backface-visibility: hidden;
+
+	&:before {
+		@include sizeElement(60px);
+		@include absoluteCenter;
+
+		content: '';
+		border-radius: 50%;
+		border: 2px solid $white;
+		transition: width 0.3s, height 0.3s, border-color 0.3s;
+	}
+
+	&:after {
+		@include sizeElement(0px);
+		@include absoluteCenter;
+
+		content: '';
+		display: block;
+		border: 2px solid $white;
+		border-radius: 50%;
+		transition: width 0.3s, height 0.3s, border-color 0.3s;
+	}
+
+	&.-hover-active {
+		&:before {
+			@include sizeElement(80px);
+		}
+
+		&:after {
+			@include sizeElement(12px);
+		}
+	}
+
+	&.-cursor-black {
+		&:before {
+			border-color: $gray-900;
+		}
+
+		&:after {
+			border-color: $gray-900;
+		}
+	}
+}

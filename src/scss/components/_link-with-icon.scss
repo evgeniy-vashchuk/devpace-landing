@@ -1,0 +1,53 @@
+.link-with-icon {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	padding-left: 35px;
+
+	@include min-w(lg) {
+		padding-left: 45px;
+	}
+
+	@include min-w(xxl) {
+		padding-left: 60px;
+	}
+
+	&__icon {
+		color: $primary;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translate(0, -50%);
+		font-size: 24px;
+
+		@include min-w(lg) {
+			font-size: 30px;
+		}
+
+		@include min-w(xxl) {
+			font-size: 40px;
+		}
+	}
+
+	&__text {
+		font-family: $font-montserrat-alternates;
+		font-weight: 400;
+		font-size: 20px;
+		color: $white;
+		transition: color 0.3s;
+
+		@include min-w(lg) {
+			font-size: 26px;
+		}
+
+		@include min-w(xxl) {
+			font-size: 32px;
+		}
+	}
+
+	&:hover {
+		.link-with-icon__text {
+			color: $primary;
+		}
+	}
+}

@@ -1,0 +1,376 @@
+.fullpage-section {
+	@include max-w(md) {
+		padding: 80px 0;
+	}
+
+	@include max-w(sm) {
+		padding: 50px 0;
+	}
+
+	.fp-responsive & {
+		height: auto !important;
+	}
+
+	&.-centered {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__arrow-down {
+		position: absolute;
+		z-index: 10;
+		bottom: 15px;
+		left: 50%;
+		transform: translate(-50%, 0);
+
+		@include min-w(md) {
+			bottom: 38px;
+		}
+	}
+}
+
+.section {
+	&-welcome {
+		@include max-w(md) {
+			padding: 150px 0;
+		}
+
+		&__main-content {
+			@include min-w(md) {
+				padding-top: 100px;
+			}
+
+			@include min-w(lg) {
+				padding-top: 130px;
+			}
+
+			@include min-w(xl) {
+				padding-top: 160px;
+			}
+
+			@include min-w(xxl) {
+				padding-top: 250px;
+			}
+		}
+
+		&__phone {
+			position: absolute;
+			top: 17px;
+			right: 90px;
+			z-index: 10;
+
+			@include min-w(lg) {
+				top: 38px;
+				right: 150px;
+			}
+
+			@include min-w(xxl) {
+				top: 80px;
+				right: 220px;
+			}
+		}
+	}
+
+	&-with-bg-video {
+		&__main-content {
+			position: relative;
+			z-index: 5;
+		}
+	}
+
+	&-intro {
+		position: relative;
+
+		@include min-w(md) {
+			padding: 60px 0;
+		}
+
+		@include min-w(xl) {
+			padding: 80px 0;
+		}
+
+		@include min-h-min-w(850, xxl) {
+			padding: 200px 0 100px;
+		}
+
+		&__bg-image {
+			@include absoluteCover;
+			@include bgCover;
+
+			z-index: 2;
+
+			&:after {
+				@include absoluteCover;
+
+				display: block;
+				background-color: rgba($white, 0.85);
+
+				@include max-w(sm) {
+					content: '';
+				}
+			}
+		}
+
+		&__content {
+			position: relative;
+			z-index: 5;
+		}
+
+		&__description {
+			margin-bottom: 50px;
+
+			@include min-w(xl) {
+				margin-bottom: 70px;
+			}
+
+			@include min-w(xxl) {
+				margin-bottom: 100px;
+			}
+		}
+	}
+
+	&-workout {
+		background-color: $primary;
+
+		@include min-w(md) {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			padding: 60px 0;
+		}
+
+		@include min-w(lg) {
+			padding: 120px 0;
+		}
+
+		@include min-h-min-w(800, xxl) {
+			padding: 200px 0;
+		}
+
+		&__bg-image {
+			@include absoluteCover;
+
+			background-repeat: no-repeat;
+			background-position: top right;
+			background-size: contain;
+			z-index: 5;
+			pointer-events: none;
+
+			&:after {
+				@include absoluteCover;
+
+				display: block;
+				background-color: rgba($primary, 0.85);
+
+				@include max-w(sm) {
+					content: '';
+				}
+			}
+		}
+
+		&__content {
+			position: relative;
+			z-index: 10;
+
+			@include min-w(md) {
+				position: static;
+				z-index: 1;
+			}
+		}
+
+		&__description {
+			max-width: 690px;
+		}
+	}
+
+	&-360-view {
+		display: flex;
+		align-items: flex-end;
+		min-height: 500px;
+
+		@include min-w(md) {
+			padding: 100px 0;
+		}
+
+		@include min-h-min-w(850, xxl) {
+			padding-bottom: 250px;
+			min-height: auto;
+		}
+
+		&__scene {
+			@include absoluteCover;
+
+			z-index: 2;
+		}
+
+		&__main-content {
+			position: relative;
+			z-index: 5;
+			width: 100%;
+			pointer-events: none;
+			display: flex;
+			align-items: center;
+		}
+
+		&__title {
+			margin-bottom: 0;
+			text-shadow: 0px 0px 20px $black;
+		}
+	}
+
+	&-contacts {
+		background-image: url('../img/gray-bg-texture.jpg');
+
+		@include max-w(md) {
+			padding-bottom: 0;
+		}
+
+		&__map-container {
+			position: relative;
+			height: 300px;
+
+			@include min-w(sm) {
+				height: 400px;
+			}
+
+			@include min-w(md) {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 50%;
+				z-index: 5;
+				height: auto;
+			}
+		}
+
+		&__map {
+			@include absoluteCover;
+
+			// hide bottom labels
+			.gm-style-cc {
+				display: none;
+			}
+
+			// hide google label
+			a[href^="http://maps.google.com/maps"],
+			a[href^="https://maps.google.com/maps"],
+			a[href^="https://www.google.com/maps"] {
+				display: none !important;
+			}
+		}
+
+		&__text-content {
+			margin-bottom: 50px;
+
+			@include min-w(md) {
+				margin-bottom: 0;
+			}
+		}
+
+		&__description {
+			margin-bottom: 40px;
+
+			@include min-w(xl) {
+				margin-bottom: 60px;
+			}
+		}
+	}
+
+	&-subscribe {
+		padding: 60px 0;
+		background: linear-gradient(rgba($white, 0) 50%, darken($gray-400, 10%));
+
+		@include min-w(lg) {
+			padding: 100px 0;
+		}
+
+		@include min-h-min-w(850, xxl) {
+			padding: 200px 0;
+		}
+
+		&__main-content {
+			text-align: center;
+		}
+
+		&__top-content-wrap {
+			position: relative;
+			z-index: 10;
+			margin-bottom: 30px;
+
+			@include min-w(md) {
+				margin-bottom: 0;
+			}
+		}
+
+		&__title {
+			@include min-w(xl) {
+				margin-bottom: 50px;
+			}
+
+			@include min-h-min-w(850, xxl) {
+				margin-bottom: 90px;
+			}
+		}
+
+		&__description {
+			max-width: 910px;
+			margin: 0 auto 50px;
+
+			@include min-h-min-w(850, xxl) {
+				margin-bottom: 100px;
+			}
+		}
+
+		&__form {
+			max-width: 600px;
+			margin: 0 auto;
+
+			@include min-h-min-w(850, xxl) {
+				max-width: 850px;
+			}
+		}
+
+		&__copyright {
+			font-weight: 600;
+			max-width: #{map-get($container-max-widths, xxl)};
+			width: 100%;
+			margin: 0 auto;
+			padding: 0 $grid-gutter-width/2;
+
+			@include min-w(md) {
+				position: absolute;
+				bottom: 20px;
+				left: 50%;
+				z-index: 5;
+				transform: translate(-50%, 0);
+				font-size: 21px;
+			}
+
+			@include min-w(xxl) {
+				text-align: right;
+				bottom: 50px;
+				color: $white;
+			}
+		}
+
+		&__big-title {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			white-space: nowrap;
+			transform: translate(-50%, 25%);
+			font-family: $headings-font-family;
+			font-weight: 700;
+			font-size: 19vw;
+			line-height: 1;
+			color: $white;
+			display: none;
+
+			@include min-w(md) {
+				display: block;
+			}
+		}
+	}
+}

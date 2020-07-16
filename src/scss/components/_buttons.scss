@@ -1,0 +1,124 @@
+.round-social-button {
+	@include sizeElement(50px);
+	@include flexCenter;
+
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+	z-index: $zindex-fixed;
+	background-color: $white;
+	border-radius: 50%;
+	padding: 10px;
+	box-shadow: 0 12px 48px rgba($black, 0.2), 0 8px 14px rgba($black, 0.12);
+
+	@include min-w(md) {
+		@include sizeElement(60px);
+
+		right: 15px;
+		bottom: 15px;
+	}
+
+	@include min-w(lg) {
+		@include sizeElement(80px);
+
+		right: 40px;
+		bottom: 40px;
+	}
+
+	@include min-w(xl) {
+		right: 60px;
+		bottom: 60px;
+	}
+
+	@include min-w(xxl) {
+		@include sizeElement(96px);
+	}
+
+	&__icon {
+		width: 30px;
+		max-height: 100%;
+		flex-shrink: 0;
+		transition: transform 0.3s;
+
+		@include min-w(lg) {
+			width: 45px;
+		}
+
+		@include min-w(xxl) {
+			width: 59px;
+		}
+	}
+
+	&:hover {
+		.round-social-button__icon {
+			transform: scale(0.85);
+		}
+	}
+}
+
+.link-with-arrow {
+	font-size: 18px;
+	font-weight: 700;
+	display: inline-flex;
+	align-items: center;
+
+	@include min-w(md) {
+		font-size: 22px;
+		min-width: 0;
+		transition: min-width 1s;
+	}
+
+	@include min-w(xl) {
+		font-size: 26px;
+	}
+
+	@include min-w(xl) {
+		font-size: 31px;
+	}
+
+	&.-primary {
+		color: $primary;
+	}
+
+	&:hover {
+		@include min-w(md) {
+			min-width: 100%;
+		}
+
+		.link-with-arrow__icon {
+			@include min-w(md) {
+				width: 100%;
+			}
+		}
+	}
+
+	&__text {
+		white-space: nowrap;
+	}
+
+	&__icon {
+		position: relative;
+		display: inline-block;
+		font-size: 1.16129em;
+		margin-left: 0.64516em;
+		display: flex;
+		justify-content: flex-end;
+		width: 0.94444em;
+		transition: width 0.5s;
+
+		&:after {
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 3px;
+			transform: translate(0, -50%);
+			height: 2px;
+			background-color: $primary;
+
+			@include min-w(md) {
+				content: '';
+			}
+		}
+	}
+}

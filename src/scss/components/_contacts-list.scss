@@ -1,0 +1,70 @@
+.contacts-list {
+	font-size: 18px;
+	font-weight: 700;
+
+	@include min-w(lg) {
+		font-size: 20px;
+	}
+
+	@include min-w(xl) {
+		font-size: 24px;
+	}
+
+	@include min-w(xxl) {
+		font-size: 27px;
+	}
+
+	&.-white {
+		.contacts-list__link {
+			color: $white;
+
+			&:hover {
+				color: $primary;
+			}
+		}
+	}
+
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: 0.92592em;
+		}
+	}
+
+	&__link {
+		position: relative;
+		display: inline-block;
+		padding-left: 2.2222em;
+		transition: color 0.3s;
+
+		&:before {
+			display: inline-block;
+			font-family: icomoon;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translate(0, -50%);
+			line-height: 1;
+			font-size: 1.48148em;
+			font-weight: 400;
+		}
+
+		&[href^="http://maps.google.com/?q="] {
+			&:before {
+				content: "\e902";
+			}
+		}
+
+		&[href^="tel:"] {
+			&:before {
+				content: "\e900";
+			}
+		}
+
+		&[href^="mailto:"] {
+			&:before {
+				content: "\e901";
+				top: 65%;
+			}
+		}
+	}
+}

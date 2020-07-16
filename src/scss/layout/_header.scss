@@ -1,0 +1,46 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: $zindex-fixed;
+	padding: 20px 0;
+	pointer-events: none;
+	transition: background-color 0.3s;
+
+	&.-white {
+		background-color: $white;
+	}
+
+	@include min-w(lg) {
+		padding: 40px 0;
+	}
+
+	@include min-w(xxl) {
+		padding: 80px 0;
+	}
+
+	&__container {
+		padding: 0 15px;
+		max-width: 1920px;
+
+		@include min-w(lg) {
+			padding: 0 40px;
+		}
+
+		@include min-w(xxl) {
+			padding: 0 80px;
+		}
+	}
+
+	&__main-content {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	&__hamburger {
+		pointer-events: initial;
+	}
+}

@@ -1,0 +1,108 @@
+.menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $primary;
+	z-index: $zindex-menu;
+	overflow: hidden;
+	display: none;
+
+	&.-open {
+		display: block;
+	}
+
+	&__canvas {
+		@include absoluteCover;
+
+		z-index: 5;
+
+		@include max-w(md) {
+			display: none;
+		}
+	}
+
+	&__mobile-bg {
+		@include absoluteCover;
+		@include bgCover;
+
+		z-index: 5;
+
+		@include min-w(md) {
+			display: none;
+		}
+	}
+
+	&__list-block {
+		position: relative;
+		z-index: 10;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__list {
+		text-align: center;
+
+		@include min-w(sm) {
+			text-align: left;
+		}
+
+		@include min-w(lg) {
+			padding: 0 45px;
+		}
+	}
+}
+
+.menu-list {
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: 15px;
+
+			@include min-w(lg) {
+				margin-bottom: 30px;
+			}
+		}
+	}
+
+	&__link {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 0;
+		color: $black;
+		transition: color 0.3s;
+
+		@include min-w(md) {
+			padding-right: 40px;
+		}
+
+		&:hover {
+			color: $white;
+
+			&:after {
+				@include min-w(md) {
+					width: 100vw;
+				}
+			}
+		}
+
+		&:after {
+			@include min-w(md) {
+				content: '';
+				display: block;
+				height: 2px;
+				position: absolute;
+				top: 50%;
+				left: 100%;
+				width: 0;
+				background-color: $white;
+				transform: translate(0, -50%);
+				transition: width 0.75s;
+			}
+		}
+	}
+}
